@@ -26,9 +26,11 @@ set "baseDir=%appdata%\EldenRing"
 	
 	if not exist "%backupsPath%" (
 		set "isFirstRun=y"
-		mkdir %backupsPath%
+		goto scheduled_task
 	)
-
+	
+	mkdir %backupsPath%
+	
 	set "hr=%time:~0,2%"
 	if "%hr:~0,1%" equ " " (
 		set hr=0%hr:~1,1%
